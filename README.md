@@ -22,7 +22,7 @@ The default values will work as-is.
 | azs                      | ["eu-west-1a", "eu-west-1b"]     | list of availability zones to deploy subnets into                                           |
 | vpc_cidr                 | 10.10.0.0/20                     | VPC CIDR                                                                                    |
 | vpc_public_subnet_cidrs  | ["10.10.0.0/24", "10.10.1.0/24"] | List of CIDR's for the public subnets.  Length must be the same as 'azs' above              |
-| vpc_private_subnet_cidrs | ["10.10.2.0/24", "10.10.3.0/24"] | List of CIDR's for the private subnets.,Length must be the same as 'azs' above              |
+| vpc_private_subnet_cidrs | ["10.10.2.0/24", "10.10.3.0/24"] | List of CIDR's for the private subnets. Length must be the same as 'azs' above              |
 
 
 # What gets created
@@ -36,3 +36,18 @@ The default values will work as-is.
 | aws_subnet                 | projectx-devtest-pub-sub1 | 10.10.1.0/24 attaches to projectx-devtest-pub-rt                |
 | aws_subnet                 | projectx-devtest-pri-sub0 | 10.10.2.0/24 |
 | aws_subnet                 | projectx-devtest-pri-sub1 | 10.10.3.0/24 | 
+
+# Layout
+```
+├── environments
+│   └── devtest
+│       ├── input.tf
+│       ├── main.tf
+│       └── terraform.tfvars
+├── modules
+│   └── vpc
+│       ├── input.tf
+│       ├── output.tf
+│       └── vpc.tf
+└── README.md
+```
