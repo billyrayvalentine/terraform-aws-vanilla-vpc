@@ -19,7 +19,7 @@ The default values will work as-is.
 | environment_name         | devtest                          |                                                                                             |
 | enable_dns_hostnames     | true                             | Enable DNS support as # https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-dns.html |
 | aws_region               | eu-west-2                        | https://docs.aws.amazon.com/general/latest/gr/rande.html                                    |
-| azs                      | ["eu-west-1a", "eu-west-1b"]     | list of availability zones to deploy subnets into                                           |
+| azs                      | ["eu-west-2a", "eu-west-2b"]     | list of availability zones to deploy subnets into                                           |
 | vpc_cidr                 | 10.10.0.0/20                     | VPC CIDR                                                                                    |
 | vpc_public_subnet_cidrs  | ["10.10.0.0/24", "10.10.1.0/24"] | List of CIDR's for the public subnets.  Length must be the same as 'azs' above              |
 | vpc_private_subnet_cidrs | ["10.10.2.0/24", "10.10.3.0/24"] | List of CIDR's for the private subnets. Length must be the same as 'azs' above              |
