@@ -4,7 +4,7 @@ resource "aws_vpc" "main" {
   cidr_block           = "${var.vpc_cidr}"
   enable_dns_hostnames = "${var.enable_dns_hostnames}"
 
-  tags {
+  tags = {
     Name = "${format("%s-%s", var.project_name, var.environment_name)}"
   }
 }
@@ -12,7 +12,7 @@ resource "aws_vpc" "main" {
 resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {
+  tags = {
     Name = "${format("%s-%s-igw", var.project_name, var.environment_name)}"
   }
 }
@@ -27,7 +27,7 @@ resource "aws_route_table" "public_route_table" {
     gateway_id = "${aws_internet_gateway.igw.id}"
   }
 
-  tags {
+  tags = {
     Name = "${format("%s-%s-pub-rt", var.project_name, var.environment_name)}"
   }
 }
@@ -44,7 +44,7 @@ resource "aws_subnet" "private_subnet" {
   availability_zone = "${var.azs[count.index]}"
   count             = "${length(var.vpc_private_subnet_cidrs)}"
 
-  tags {
+  tags = {
     Name = "${format("%s-%s-pri-sub%d", var.project_name, var.environment_name, count.index)}"
   }
 }
@@ -55,7 +55,7 @@ resource "aws_subnet" "public_subnet" {
   availability_zone = "${var.azs[count.index]}"
   count             = "${length(var.vpc_public_subnet_cidrs)}"
 
-  tags {
+  tags = {
     Name = "${format("%s-%s-pub-sub%d", var.project_name, var.environment_name, count.index)}"
   }
 }
