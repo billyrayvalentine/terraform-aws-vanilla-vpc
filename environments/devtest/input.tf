@@ -7,11 +7,11 @@ variable "enable_dns_hostnames" {
 variable "environment_name" {}
 variable "vpc_cidr" {}
 variable "vpc_public_subnet_cidrs" {
-  type = "list"
+  type = list
 }
 variable "vpc_private_subnet_cidrs" {
-  type = "list"
+  type = list
 }
 variable "azs" {
-  type = "list"
+  type = list
 }
